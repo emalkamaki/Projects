@@ -15,6 +15,7 @@ def read_csv(filename):
         
 cdc_list = read_csv("US_births_1994-2003_CDC_NCHS.csv")
 
+# The calc_counts function calculates any combination with births 
 def calc_counts(data, column):
     births_per_data = {}
     for row in data:
@@ -38,3 +39,8 @@ cdc_dom_births
 cdc_dow_births = calc_counts (cdc_list, 3)
 cdc_dow_births
     
+# min_max function finds the min and max of the births from the dataset
+def min_max(data):
+    return min(data, key = lambda x: x[4]), max(data, key = lambda x: x[4])
+
+min_max(cdc_list)
