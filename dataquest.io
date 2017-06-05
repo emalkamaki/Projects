@@ -44,3 +44,32 @@ def min_max(data):
     return min(data, key = lambda x: x[4]), max(data, key = lambda x: x[4])
 
 min_max(cdc_list)
+
+# Compare if the births are increasing or decreasing and print the result "Births increased on 2001 from year 2000"
+def check_birth_growth(birth_data_file):
+    cdc_list = read_csv(birth_data_file)
+    cdc_year_births = calc_counts(cdc_list, 0)
+    previous_year_birth = 0
+    previous_birth_diff = 0
+    for year, total_births in cdc_year_births.items():
+        current_year_birth = int(total_births)
+        if previous_year_birth == 0:
+            growth_status = "Growth of births in {} not available.".format(year)
+            print(growth_status)
+            previous_year_birth = current_year_birth
+        else:
+            if current_year_birth > previous_year_birth:
+                growth_status = "Births increased in {}.".format(year)
+                print(growth_status)
+                previous_year_birth = current_year_birth
+            elif current_year_birth < previous_year_birth:
+                growth_status = "Births decreased in {}.".format(year)
+                print(growth_status)
+                previous_year_birth = current_year_birth
+            elif current_year_birth == previous_year_birth:
+                growth_status = "Births in {} was same as previous year.".format(year)
+                print(growth_status)
+                previous_year_birth = current_year_birth
+    return previous_year_birth
+
+check_birth_growth("US_births_1994-2003_CDC_NCHS.csv")
