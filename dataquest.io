@@ -45,7 +45,7 @@ def min_max(data):
 
 min_max(cdc_list)
 
-# Compare if the births are increasing or decreasing and print the result "Births increased on 2001 from year 2000"
+# Compare if the births are increasing or decreasing and print the result e.g. "Births increased on 2001 from year 2000"
 def check_birth_growth(birth_data_file):
     cdc_list = read_csv(birth_data_file)
     cdc_year_births = calc_counts(cdc_list, 0)
