@@ -1,3 +1,4 @@
+# Import a data as CSV
 csv_list = open("US_births_1994-2003_CDC_NCHS.csv").read().split("\n")
 
 def read_csv(filename):
