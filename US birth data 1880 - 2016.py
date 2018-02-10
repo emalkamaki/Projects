@@ -81,7 +81,7 @@ get_ipython().run_cell_magic('nose', '', 'def test_bnames2_exists():\n    """bna
 
 
 # Set up matplotlib for plotting in the notebook.
-# %matplotlib inline
+%matplotlib inline
 import matplotlib.pyplot as plt
 
 def plot_trends(name, sex):
